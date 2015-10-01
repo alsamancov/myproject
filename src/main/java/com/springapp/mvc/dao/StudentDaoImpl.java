@@ -15,4 +15,8 @@ public class StudentDaoImpl implements StudentDao{
     public void insert(Student student) {
         sessionFactory.getCurrentSession().saveOrUpdate(student);
     }
+
+
+
+
 }

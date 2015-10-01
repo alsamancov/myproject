@@ -1,9 +1,8 @@
 package com.springapp.mvc.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.springframework.transaction.annotation.Transactional;
+
+import javax.persistence.*;
 
 @Entity
 public class Student {
@@ -12,39 +11,42 @@ public class Student {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private int id;
 
+    @Column(name="name")
     private String name;
 
-    private int age;
+    @Column(name="age")
+    private String age;
 
     public Student(){
     }
 
-    public Student(String name, int age) {
+    public Student(String name, String age) {
         this.name = name;
         this.age = age;
     }
 
+    @Transactional
     public int getId() {
         return id;
     }
-
+    @Transactional
     public void setId(int id) {
         this.id = id;
     }
-
+    @Transactional
     public String getName() {
         return name;
     }
-
+    @Transactional
     public void setName(String name) {
         this.name = name;
     }
-
-    public int getAge() {
+    @Transactional
+    public String getAge() {
         return age;
     }
-
-    public void setAge(int age) {
+    @Transactional
+    public void setAge(String age) {
         this.age = age;
     }
 }
